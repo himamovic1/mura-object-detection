@@ -23,9 +23,10 @@ class Config:
     LOGGING_FILE: str = path.join(resources_root, "log_archive.log")
 
     # Dataset
-    MODEL_ROOT_PATH: str = path.join(mura_resources_path, "model", "custom")
     DATASET_ROOT_PATH: str = path.join(mura_resources_path, "dataset")
     ANNOTATIONS_ROOT_PATH: str = path.join(mura_resources_path, "annotations")
+    MODEL_ROOT_PATH: str = path.join(mura_resources_path, "model", "custom")
+    MODEL_FRCNN_PATH: str = path.join(mura_resources_path, "model", "exported_frcnn_01")
 
     # Derived paths
     DATASET_PATH: Dict[str, str] = {
@@ -40,3 +41,4 @@ class Config:
 
     LABEL_MAP_PATH: str = path.join(ANNOTATIONS_ROOT_PATH, "label_map.pbtxt")
     MODEL_CONFIG_PATH: str = path.join(MODEL_ROOT_PATH, "pipeline.config")
+    MODEL_CHECKPOINT_PATH: str = path.join(MODEL_FRCNN_PATH, "checkpoint", "ckpt-0")
