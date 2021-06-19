@@ -1,0 +1,26 @@
+<annotation>
+	<folder>XR_HUMERUS</folder>
+	<filename>positive_49.png</filename>
+	<path>D:\Documents\Faks\ETF\Master 2.0\object_detection_intro\resources\tf-object-detection\dataset\XR_HUMERUS\positive_49.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>385</width>
+		<height>512</height>
+		<depth>1</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>implant</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>193</xmin>
+			<ymin>200</ymin>
+			<xmax>318</xmax>
+			<ymax>396</ymax>
+		</bndbox>
+	</object>
+</annotation>

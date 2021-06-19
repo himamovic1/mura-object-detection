@@ -5,6 +5,7 @@ from typing import Tuple, Dict
 
 project_root = path.dirname(path.dirname(path.abspath(__file__)))
 resources_root = path.join(project_root, "resources")
+mura_resources_path = path.join(resources_root, "object_detection")
 
 
 class Config:
@@ -22,23 +23,20 @@ class Config:
     LOGGING_FILE: str = path.join(resources_root, "log_archive.log")
 
     # Dataset
-    MURA_DATASET_PATH: str = "/Users/haris.imamovic/Desktop/Master/Bone/Dataset"
-    MURA_DATASET_TRAIN_CSV_REGISTRY: str = path.join(MURA_DATASET_PATH, "MURA-v1.1", "train_image_paths.csv")
-    MURA_DATASET_VALID_CSV_REGISTRY: str = path.join(MURA_DATASET_PATH, "MURA-v1.1", "valid_image_paths.csv")
-    MURA_DATASET_IMAGE_SIZE: Tuple[int, int] = (320, 320)
-    MURA_DATASET_LABELS: Dict[int, str] = {0: "negative", 1: "positive"}
+    MODEL_ROOT_PATH: str = path.join(mura_resources_path, "model", "custom")
+    DATASET_ROOT_PATH: str = path.join(mura_resources_path, "dataset")
+    ANNOTATIONS_ROOT_PATH: str = path.join(mura_resources_path, "annotations")
 
-    # Selective search config
-    MAX_REGION_PROPOSALS_TRAIN: int = 2000
-    MAX_REGION_PROPOSALS_INFER: int = 200
+    # Derived paths
+    DATASET_PATH: Dict[str, str] = {
+        "train": path.join(DATASET_ROOT_PATH, "train"),
+        "test": path.join(DATASET_ROOT_PATH, "test"),
+    }
 
-    # Network model configuration
-    MODEL_PATH: str = path.join(resources_root, "model", "model.h5")
-    ENCODER_PATH: str = path.join(resources_root, "model", "label_encoder.pickle")
-    SCORING_PLOT_PATH: str = path.join(resources_root, "model", "plot.png")
+    TF_RECORDS_PATH: Dict[str, str] = {
+        "train": path.join(ANNOTATIONS_ROOT_PATH, "train.record"),
+        "test": path.join(ANNOTATIONS_ROOT_PATH, "test.record"),
+    }
 
-    INPUT_IMAGE_DIMENSIONS: Tuple[int, int] = (224, 224)
-    INITIAL_LEARNING_RATE: float = 1e-4
-    NUMBER_OF_EPOCHS: int = 5
-    BATCH_SIZE: int = 32
-    MIN_CONFIDENCE: float = 0.99
+    LABEL_MAP_PATH: str = path.join(ANNOTATIONS_ROOT_PATH, "label_map.pbtxt")
+    MODEL_CONFIG_PATH: str = path.join(MODEL_ROOT_PATH, "pipeline.config")
