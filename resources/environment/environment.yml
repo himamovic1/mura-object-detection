@@ -1,0 +1,31 @@
+name: mura-object-detection
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - flask
+  - flask-bootstrap
+  - gast
+  - google-pasta
+  - grpcio
+  - h5py=20.10.0
+  - ipython
+  - keras-preprocessing
+  - numpy
+  - opt_einsum
+  - pip=20.2.4
+  - protobuf
+  - python-flatbuffers
+  - python=3.8
+  - scipy
+  - tensorboard
+  - tensorflow-estimator
+  - termcolor
+  - typeguard
+  - typing_extensions
+  - wheel
+  - wrapt
+  - opencv
+  - scikit-learn
+  - scikit-image
+

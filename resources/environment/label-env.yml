@@ -1,0 +1,8 @@
+name: label-env
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.9
+  - lxml
+  - pyqt5=5.12.1

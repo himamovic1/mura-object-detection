@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<div class="row">
+    <div class="col-md-12">
+        <h1>Detection result</h1>
+        <hr>
+        <h2>Predicted class: {{ result.class_name }}</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <img src="{{ result.image_path }}" class="img img-responsive">
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <a href="{{ url_for('index') }}" class="btn btn-default">Home page</a>
+    </div>
+</div>
+{% endblock %}
