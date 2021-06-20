@@ -42,3 +42,11 @@ class Config:
     LABEL_MAP_PATH: str = path.join(ANNOTATIONS_ROOT_PATH, "label_map.pbtxt")
     MODEL_CONFIG_PATH: str = path.join(MODEL_ROOT_PATH, "pipeline.config")
     MODEL_CHECKPOINT_PATH: str = path.join(MODEL_FRCNN_PATH, "checkpoint", "ckpt-0")
+
+    # Detection process config
+    OBJECT_DETECTION_MIN_CONFIDENCE: float = 0.85
+    OBJECT_DETECTION_CLASSES_OFFSET: int = 1
+    OBJECT_DETECTION_CLASSES: Dict[int, str] = {
+        1: "fracture",
+        2: "implant"
+    }

@@ -1,5 +1,6 @@
 from flask import Flask
 
+from app_navigation import init_site_navigation
 from app_plugins import init_plugins
 from app_routes import init_routes
 from config.config import Config
@@ -17,6 +18,7 @@ def create_app() -> Flask:
 
     init_plugins(flask_app)
     init_routes(flask_app)
+    init_site_navigation(flask_app)
 
     return flask_app
 
