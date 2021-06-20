@@ -3,8 +3,7 @@ import os
 from flask import Flask, request, flash, render_template, url_for
 from werkzeug.exceptions import HTTPException
 
-from config.config import Config
-from detector.inference import detect_and_mark_objects
+from detector.tf_model_detect import detect_and_mark_objects
 from util.image import validate_image_type, generate_filename
 
 
@@ -37,7 +36,7 @@ def init_routes(app: Flask) -> None:
             uploaded_file.save(image_path)
 
             # Prediction should be done in this point
-            detection_result = detect_and_mark_objects(image_path=image_path, app_config=Config())
+            detection_result = detect_and_mark_objects(image_path=image_path)
 
             return render_template(
                 "result.html",

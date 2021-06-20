@@ -1,6 +1,5 @@
-""" Sample TensorFlow XML-to-TFRecord converter
-
-usage: generate_tfrecord.py [-h] [-x XML_DIR] [-l LABELS_PATH] [-o OUTPUT_PATH] [-i IMAGE_DIR] [-c CSV_PATH]
+"""
+Sample TensorFlow XML-to-TFRecord converter
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -15,43 +14,21 @@ optional arguments:
   -c CSV_PATH, --csv_path CSV_PATH
                         Path of output .csv file. If none provided, then no file will be written.
 """
-import os
 import glob
+import io
+import os
+import xml.etree.ElementTree as ET
+from collections import namedtuple
 from typing import Dict, Any
 
 import pandas as pd
-import io
-import xml.etree.ElementTree as ET
-import argparse
-
 from PIL import Image
 from object_detection.utils import dataset_util, label_map_util
-from collections import namedtuple
 
 from config.config import Config
 
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"  # Suppress TensorFlow logging (1)
 import tensorflow.compat.v1 as tf
-
-# Initiate argument parser
-parser = argparse.ArgumentParser(description="Sample TensorFlow XML-to-TFRecord converter")
-parser.add_argument("-t", "--target", help="Which dataset to target [train, test]", type=str)
-cmd_args = parser.parse_args()
-
-
-def get_arguments(target: str = "train") -> Dict[str, Any]:
-    return {
-        # Path to the folder where the input .xml files are stored
-        "xml_dir": Config.DATASET_PATH[target],
-        # Path to the labels (.pbtxt) file
-        "labels_path": Config.LABEL_MAP_PATH,
-        # Path of output TFRecord (.record) file
-        "output_path": Config.TF_RECORDS_PATH[target],
-        # Path to the folder where the input image files are stored. " "Defaults to the same directory as XML_DIR.
-        "image_dir": Config.DATASET_PATH[target],
-        # Path of output .csv file. If none provided, then no file will be " "written.
-        "csv_path": None,
-    }
 
 
 def xml_to_csv(path):
@@ -153,25 +130,41 @@ def create_tf_example(group, path, labels_path: str):
     )
 
 
-def main(_):
-    print(cmd_args.target)
-    args = get_arguments(cmd_args.target)
+def get_arguments(target: str = "train") -> Dict[str, Any]:
+    return {
+        # Path to the folder where the input .xml files are stored
+        "xml_dir": Config.DATASET_PATH[target],
+        # Path to the labels (.pbtxt) file
+        "labels_path": Config.LABEL_MAP_PATH,
+        # Path of output TFRecord (.record) file
+        "output_path": Config.TF_RECORDS_PATH[target],
+        # Path to the folder where the input image files are stored. " "Defaults to the same directory as XML_DIR.
+        "image_dir": Config.DATASET_PATH[target],
+        # Path of output .csv file. If none provided, then no file will be " "written.
+        "csv_path": None,
+    }
 
-    writer = tf.python_io.TFRecordWriter(args["output_path"])
-    path = os.path.join(args["image_dir"])
-    examples = xml_to_csv(args["xml_dir"])
-    grouped = split(examples, "filename")
 
-    for group in grouped:
-        tf_example = create_tf_example(group, path, args["labels_path"])
-        writer.write(tf_example.SerializeToString())
+def main():
+    train_set_args = get_arguments(target="train")
+    test_set_args = get_arguments(target="test")
 
-    writer.close()
-    print("Successfully created the TFRecord file: {}".format(args["output_path"]))
+    for args in (train_set_args, test_set_args):
+        writer = tf.python_io.TFRecordWriter(args["output_path"])
+        path = os.path.join(args["image_dir"])
+        examples = xml_to_csv(args["xml_dir"])
+        grouped = split(examples, "filename")
 
-    if args["csv_path"] is not None:
-        examples.to_csv(args["csv_path"], index=None)
-        print("Successfully created the CSV file: {}".format(args["csv_path"]))
+        for group in grouped:
+            tf_example = create_tf_example(group, path, args["labels_path"])
+            writer.write(tf_example.SerializeToString())
+
+        writer.close()
+        print("Successfully created the TFRecord file: {}".format(args["output_path"]))
+
+        if args["csv_path"] is not None:
+            examples.to_csv(args["csv_path"], index=None)
+            print("Successfully created the CSV file: {}".format(args["csv_path"]))
 
 
 if __name__ == "__main__":

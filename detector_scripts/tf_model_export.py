@@ -1,20 +1,4 @@
-# Lint as: python2, python3
-# Copyright 2020 The TensorFlow Authors. All Rights Reserved.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# ==============================================================================
-
-r"""Tool to export an object detection model for inference.
+"""Tool to export an object detection model for inference.
 
 Prepares an object detection tensorflow graph for inference using model
 configuration and a trained checkpoint. Outputs associated checkpoint files,
@@ -97,13 +81,13 @@ If side inputs are desired, the following arguments could be appended
    --side_input_names context_features,valid_context_size \
    --side_input_types tf.float32,tf.int32
 """
-from absl import app
-from absl import flags
-
 import tensorflow.compat.v2 as tf
+from absl import app, flags
 from google.protobuf import text_format
 from object_detection import exporter_lib_v2
 from object_detection.protos import pipeline_pb2
+
+from config.config import Config
 
 tf.enable_v2_behavior()
 
@@ -112,20 +96,34 @@ FLAGS = flags.FLAGS
 flags.DEFINE_string(
     "input_type",
     "image_tensor",
-    "Type of input node. Can be "
-    "one of [`image_tensor`, `encoded_image_string_tensor`, "
-    "`tf_example`, `float_image_tensor`, "
-    "`image_and_boxes_tensor`]",
+    "Type of input node. Can be one of "
+    "[`image_tensor`, `encoded_image_string_tensor`, `tf_example`, `float_image_tensor`, `image_and_boxes_tensor`]",
 )
-
-flags.DEFINE_string("pipeline_config_path", None, "Path to a pipeline_pb2.TrainEvalPipelineConfig config " "file.")
-flags.DEFINE_string("trained_checkpoint_dir", None, "Path to trained checkpoint directory")
-flags.DEFINE_string("output_directory", None, "Path to write outputs.")
 flags.DEFINE_string(
-    "config_override", "", "pipeline_pb2.TrainEvalPipelineConfig " "text proto to override pipeline_config_path."
+    "pipeline_config_path",
+    None,
+    "Path to a pipeline_pb2.TrainEvalPipelineConfig config file."
 )
-
-flags.DEFINE_boolean("use_side_inputs", False, "If True, uses side inputs as well as image inputs.")
+flags.DEFINE_string(
+    "trained_checkpoint_dir",
+    None,
+    "Path to trained checkpoint directory"
+)
+flags.DEFINE_string(
+    "output_directory",
+    None,
+    "Path to write outputs."
+)
+flags.DEFINE_string(
+    "config_override",
+    "",
+    "pipeline_pb2.TrainEvalPipelineConfig text proto to override pipeline_config_path."
+)
+flags.DEFINE_boolean(
+    "use_side_inputs",
+    False,
+    "If True, uses side inputs as well as image inputs."
+)
 flags.DEFINE_string(
     "side_input_shapes",
     "",
@@ -155,14 +153,18 @@ flags.DEFINE_string(
     "strings. This flag is required if using side inputs.",
 )
 
-flags.mark_flag_as_required("pipeline_config_path")
-flags.mark_flag_as_required("trained_checkpoint_dir")
-flags.mark_flag_as_required("output_directory")
+
+# flags.mark_flag_as_required("pipeline_config_path")
+# flags.mark_flag_as_required("trained_checkpoint_dir")
+# flags.mark_flag_as_required("output_directory")
 
 
-def main(_):
+def main():
+    flags.pipeline_config_path = Config.TF_FLAG_PIPELINE_CONFIG_PATH
+    flags.trained_checkpoint_dir = Config.TF_FLAG_CHECKPOINT_DIR
+    flags.output_directory = Config.TF_FLAG_MODEL_OUTPUT_DIR
+
     pipeline_config = pipeline_pb2.TrainEvalPipelineConfig()
-
     with tf.io.gfile.GFile(FLAGS.pipeline_config_path, "r") as f:
         text_format.Merge(f.read(), pipeline_config)
 

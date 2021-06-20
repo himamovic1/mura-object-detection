@@ -46,7 +46,34 @@ class Config:
     # Detection process config
     OBJECT_DETECTION_MIN_CONFIDENCE: float = 0.85
     OBJECT_DETECTION_CLASSES_OFFSET: int = 1
-    OBJECT_DETECTION_CLASSES: Dict[int, str] = {
-        1: "fracture",
-        2: "implant"
-    }
+    OBJECT_DETECTION_CLASSES: Dict[int, str] = {1: "fracture", 2: "implant"}
+
+    ########################################################
+    # Tensorflow ObjectDetection API Training & Evaluating #
+    ########################################################
+    TF_FLAG_MODEL_DIR: str = MODEL_ROOT_PATH
+    TF_FLAG_CHECKPOINT_DIR: str = MODEL_ROOT_PATH
+    TF_FLAG_PIPELINE_CONFIG_PATH: str = MODEL_CONFIG_PATH
+    TF_FLAG_NUM_TRAINING_STEPS: int = None
+    TF_FLAG_EVAL_INTERVAL: int = 300
+    TF_FLAG_EVAL_TIMEOUT: int = 3600
+    TF_FLAG_EVAL_ON_TRAIN_DATA: bool = False
+    TF_FLAG_SAMPLE_1_OF_N_EVAL_EXAMPLES: int = None
+    TF_FLAG_SAMPLE_1_OF_N_EVAL_ON_TRAIN_EXAMPLES: int = 5
+    TF_FLAG_USE_TPU: bool = False
+    TF_FLAG_TPU_NAME: str = None
+    TF_FLAG_NUM_WORKERS: int = 1
+    TF_FLAG_CHECKPOINT_EVERY_N: int = 1000
+    TF_FLAG_RECORD_SUMMARIES: bool = True
+
+    ########################################################
+    # Tensorflow ObjectDetection API Model Exporting       #
+    ########################################################
+    TF_FLAG_IMAGE_INPUT_TYPE: str = "image_tensor"
+    TF_FLAG_USE_SIDE_INPUTS: bool = False
+    TF_FLAG_SIDE_INPUT_NAMES: str = ""
+    TF_FLAG_SIDE_INPUT_TYPES: str = ""
+    TF_FLAG_SIDE_INPUT_SHAPES: str = ""
+
+    # TODO: Always update the output path before exporting to avoid overriding models
+    TF_FLAG_MODEL_OUTPUT_DIR: str = path.join(mura_resources_path, "model", "exported_frcnn_02")
