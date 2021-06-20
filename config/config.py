@@ -1,6 +1,6 @@
 """ Main configuration file """
 import logging
-from os import path
+from os import path, environ
 from typing import Tuple, Dict
 
 project_root = path.dirname(path.dirname(path.abspath(__file__)))
@@ -77,3 +77,15 @@ class Config:
 
     # TODO: Always update the output path before exporting to avoid overriding models
     TF_FLAG_MODEL_OUTPUT_DIR: str = path.join(mura_resources_path, "model", "exported_frcnn_02")
+
+    ########################################################
+    # MURA Dataset (to extract test and validation data)   #
+    ########################################################
+    MURA_DATASET_ROOT_DIR: str = environ.get("MURA_DATASET_ROOT_DIR")
+    MURA_DATASET_INPUT_TRAIN_DIR: str = path.join(MURA_DATASET_ROOT_DIR, "original", "train", "XR_HUMERUS")
+    MURA_DATASET_INPUT_TEST_DIR: str = path.join(MURA_DATASET_ROOT_DIR, "original", "valid", "XR_HUMERUS")
+    MURA_DATASET_OUTPUT_TRAIN_DIR: str = path.join(MURA_DATASET_ROOT_DIR, "generated", "train")
+    MURA_DATASET_OUTPUT_TEST_DIR: str = path.join(MURA_DATASET_ROOT_DIR, "generated", "test")
+
+    MURA_DATASET_TRAIN_IMAGE_COUNT: int = 200
+    MURA_DATASET_TEST_IMAGE_COUNT: int = 50
