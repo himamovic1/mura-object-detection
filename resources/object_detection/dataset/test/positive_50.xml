@@ -1,0 +1,26 @@
+<annotation>
+	<folder>test</folder>
+	<filename>positive_50.png</filename>
+	<path>D:\Documents\Faks\ETF\Master 2.0\other\MURA\generated\test\positive_50.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>420</width>
+		<height>512</height>
+		<depth>1</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>fracture</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>138</xmin>
+			<ymin>240</ymin>
+			<xmax>181</xmax>
+			<ymax>381</ymax>
+		</bndbox>
+	</object>
+</annotation>

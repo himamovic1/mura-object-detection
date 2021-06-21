@@ -1,0 +1,26 @@
+<annotation>
+	<folder>test</folder>
+	<filename>positive_12.png</filename>
+	<path>D:\Documents\Faks\ETF\Master 2.0\other\MURA\generated\test\positive_12.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>512</width>
+		<height>509</height>
+		<depth>1</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>implant</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>144</xmin>
+			<ymin>67</ymin>
+			<xmax>340</xmax>
+			<ymax>305</ymax>
+		</bndbox>
+	</object>
+</annotation>

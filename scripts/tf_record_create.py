@@ -145,7 +145,7 @@ def get_arguments(target: str = "train") -> Dict[str, Any]:
     }
 
 
-def main():
+def main(_):
     train_set_args = get_arguments(target="train")
     test_set_args = get_arguments(target="test")
 

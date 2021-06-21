@@ -1,13 +1,13 @@
 <annotation>
-	<folder>XR_HUMERUS</folder>
+	<folder>train</folder>
 	<filename>positive_8.png</filename>
-	<path>D:\Documents\Faks\ETF\Master 2.0\object_detection_intro\resources\tf-object-detection\dataset\XR_HUMERUS\positive_8.png</path>
+	<path>D:\Documents\Faks\ETF\Master 2.0\other\MURA\generated\train\positive_8.png</path>
 	<source>
 		<database>Unknown</database>
 	</source>
 	<size>
-		<width>512</width>
-		<height>509</height>
+		<width>420</width>
+		<height>512</height>
 		<depth>1</depth>
 	</size>
 	<segmented>0</segmented>
@@ -17,10 +17,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>167</xmin>
-			<ymin>46</ymin>
-			<xmax>258</xmax>
-			<ymax>209</ymax>
+			<xmin>107</xmin>
+			<ymin>82</ymin>
+			<xmax>274</xmax>
+			<ymax>303</ymax>
 		</bndbox>
 	</object>
 </annotation>
