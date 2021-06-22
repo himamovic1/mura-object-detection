@@ -25,8 +25,22 @@ Custom trained model was mounted to a simple Flask web application which support
 
 If I manage to find some time will deploy it to Heroku or something similar for easier access.
 
+Page | Image
+--- | --- 
+Upload | ![Upload Form](https://github.com/himamovic1/mura-object-detection/blob/main/resources/screenshots/01.png)
+--- | --- 
+Result Negative | ![Result Negative Page](https://github.com/himamovic1/mura-object-detection/blob/main/resources/screenshots/03.png)
+--- | --- 
+Result Positive | ![Result Negative Page](https://github.com/himamovic1/mura-object-detection/blob/main/resources/screenshots/02.png)
+
 ## Labeling images
 
 Complete image material was taken from MURA dataset. Subset of those was needed for training the model, and in order to
 mark regions of interest in those chosen images [LabelImg](https://github.com/tzutalin/labelImg) tool was used.
+
+Implant #1 | Implant #2
+--- | --- 
+![Label Implant](https://github.com/himamovic1/mura-object-detection/blob/main/resources/screenshots/04.png) | ![Label Implant Multiple](https://github.com/himamovic1/mura-object-detection/blob/main/resources/screenshots/05.png)
+
+
 
