@@ -3,7 +3,6 @@ from typing import List, Tuple
 import matplotlib.pyplot as plt
 import numpy as np
 import tensorflow as tf
-from PIL import Image
 from object_detection.builders import model_builder
 from object_detection.utils import config_util
 from object_detection.utils import label_map_util
@@ -22,10 +21,10 @@ def get_keypoint_tuples(eval_config):
 
 def get_model_detection_function(model):
     @tf.function
-    def detect_fn(image):
+    def detect_fn(img):
         """Preprocess and run detection on the given image."""
-        image, shapes = model.preprocess(image)
-        prediction_dict = model.predict(image, shapes)
+        img, shapes = model.preprocess(img)
+        prediction_dict = model.predict(img, shapes)
         detections = model.postprocess(prediction_dict, shapes)
 
         return detections, prediction_dict, tf.reshape(shapes, [-1])
@@ -55,7 +54,7 @@ def detect_and_mark_objects(image_path: str) -> List[Tuple[str, float]]:
 
     category_index = label_map_util.create_category_index(categories)
 
-    original_image = np.array(Image.open(image_path))
+    original_image = np.array(tf.keras.preprocessing.image.load_img(image_path))
     original_image_tensor = tf.convert_to_tensor(np.expand_dims(original_image, 0), dtype=tf.float32)
 
     detect_fn = get_model_detection_function(detection_model)
