@@ -26,7 +26,7 @@ class Config:
     DATASET_ROOT_PATH: str = path.join(mura_resources_path, "dataset")
     ANNOTATIONS_ROOT_PATH: str = path.join(mura_resources_path, "annotations")
     MODEL_ROOT_PATH: str = path.join(mura_resources_path, "model", "custom")
-    MODEL_FRCNN_PATH: str = path.join(mura_resources_path, "model", "exported_frcnn_01")
+    MODEL_FRCNN_PATH: str = path.join(mura_resources_path, "model", "exported_frcnn_02")
 
     # Derived paths
     DATASET_PATH: Dict[str, str] = {
