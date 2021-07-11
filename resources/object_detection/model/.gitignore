@@ -1,5 +1,5 @@
-/custom
-/exported_frcnn_01
-/exported_frcnn_02
+/custom/*
+/exported_frcnn_01/*
+/exported_frcnn_02/*
 
 !*/pipeline.config
