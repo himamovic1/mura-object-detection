@@ -25,7 +25,7 @@ class Config:
     # Dataset
     DATASET_ROOT_PATH: str = path.join(mura_resources_path, "dataset")
     ANNOTATIONS_ROOT_PATH: str = path.join(mura_resources_path, "annotations")
-    MODEL_ROOT_PATH: str = path.join(mura_resources_path, "model", "custom")
+    CUSTOM_MODEL_ROOT_PATH: str = path.join(mura_resources_path, "model", "custom")
     MODEL_FRCNN_PATH: str = path.join(mura_resources_path, "model", "exported_frcnn_02")
 
     # Derived paths
@@ -40,7 +40,7 @@ class Config:
     }
 
     LABEL_MAP_PATH: str = path.join(ANNOTATIONS_ROOT_PATH, "label_map.pbtxt")
-    MODEL_CONFIG_PATH: str = path.join(MODEL_ROOT_PATH, "pipeline.config")
+    MODEL_CONFIG_PATH: str = path.join(CUSTOM_MODEL_ROOT_PATH, "pipeline.config")
     MODEL_CHECKPOINT_PATH: str = path.join(MODEL_FRCNN_PATH, "checkpoint", "ckpt-0")
 
     # Detection process config
@@ -51,8 +51,8 @@ class Config:
     ########################################################
     # Tensorflow ObjectDetection API Training & Evaluating #
     ########################################################
-    TF_FLAG_MODEL_DIR: str = MODEL_ROOT_PATH
-    TF_FLAG_CHECKPOINT_DIR: str = MODEL_ROOT_PATH
+    TF_FLAG_MODEL_DIR: str = CUSTOM_MODEL_ROOT_PATH
+    TF_FLAG_CHECKPOINT_DIR: str = CUSTOM_MODEL_ROOT_PATH
     TF_FLAG_PIPELINE_CONFIG_PATH: str = MODEL_CONFIG_PATH
     TF_FLAG_NUM_TRAINING_STEPS: int = None
     TF_FLAG_EVAL_INTERVAL: int = 300
