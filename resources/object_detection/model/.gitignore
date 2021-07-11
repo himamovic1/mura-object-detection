@@ -1,5 +1,7 @@
 /custom/*
+/custom_trained/*
 /exported_frcnn_01/*
 /exported_frcnn_02/*
 
+!*/readme.md
 !*/pipeline.config

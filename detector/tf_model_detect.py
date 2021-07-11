@@ -39,13 +39,13 @@ def detect_and_mark_objects(image_path: str) -> List[Tuple[str, float]]:
     Returns a list of found labels and matching scores (confidence).
     """
     # Load pipeline and build a detection tool
-    configurations = config_util.get_configs_from_pipeline_file(Config.MODEL_CONFIG_PATH)
+    configurations = config_util.get_configs_from_pipeline_file(Config.APP_CUSTOM_MODEL_TRAINED_CONFIG)
     model_configuration = configurations["model"]
     detection_model = model_builder.build(model_config=model_configuration, is_training=False)
 
     # Restore checkpoint
     checkpoint = tf.compat.v2.train.Checkpoint(model=detection_model)
-    checkpoint.restore(Config.MODEL_CHECKPOINT_PATH).expect_partial()
+    checkpoint.restore(Config.APP_CUSTOM_MODEL_TRAINED_CHECKPOINT).expect_partial()
 
     label_map = label_map_util.load_labelmap(Config.LABEL_MAP_PATH)
     categories = label_map_util.convert_label_map_to_categories(

@@ -76,7 +76,14 @@ class Config:
     TF_FLAG_SIDE_INPUT_SHAPES: str = ""
 
     # TODO: Always update the output path before exporting to avoid overriding models
-    TF_FLAG_MODEL_OUTPUT_DIR: str = path.join(mura_resources_path, "model", "exported_frcnn_02")
+    TF_FLAG_CUSTOM_MODEL_TRAINED_OUTPUT_DIR: str = path.join(mura_resources_path, "model", "custom_trained")
+
+    ########################################################
+    # Main Application Detector Configuration              #
+    ########################################################
+    APP_CUSTOM_MODEL_TRAINED_DIR: str = TF_FLAG_CUSTOM_MODEL_TRAINED_OUTPUT_DIR
+    APP_CUSTOM_MODEL_TRAINED_CONFIG: str = path.join(APP_CUSTOM_MODEL_TRAINED_DIR, "pipeline.config")
+    APP_CUSTOM_MODEL_TRAINED_CHECKPOINT: str = path.join(APP_CUSTOM_MODEL_TRAINED_DIR, "checkpoint", "ckpt-0")
 
     ########################################################
     # MURA Dataset (to extract test and validation data)   #

@@ -5,7 +5,7 @@ from object_detection import model_lib_v2
 from config.config import Config
 
 
-def main():
+def main(_):
     """
     Define arguments for training the model.
 
