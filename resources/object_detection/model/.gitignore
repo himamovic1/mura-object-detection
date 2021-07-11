@@ -1,2 +1,5 @@
 /custom
-/exported_frcnn_01
+/exported_frcnn_01/checkpoint
+/exported_frcnn_01/saved_model
+/exported_frcnn_02/checkpoint
+/exported_frcnn_02/saved_model
