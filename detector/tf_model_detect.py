@@ -21,7 +21,7 @@ def get_keypoint_tuples(eval_config):
 
 def get_model_detection_function(model):
     @tf.function
-    def detect_fn(img):
+    def detection_function_wrapper(img):
         """Preprocess and run detection on the given image."""
         img, shapes = model.preprocess(img)
         prediction_dict = model.predict(img, shapes)
@@ -29,7 +29,7 @@ def get_model_detection_function(model):
 
         return detections, prediction_dict, tf.reshape(shapes, [-1])
 
-    return detect_fn
+    return detection_function_wrapper
 
 
 def detect_and_mark_objects(image_path: str) -> List[Tuple[str, float]]:

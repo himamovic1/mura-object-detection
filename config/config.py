@@ -1,7 +1,7 @@
 """ Main configuration file """
 import logging
 from os import path, environ
-from typing import Tuple, Dict
+from typing import Dict
 
 project_root = path.dirname(path.dirname(path.abspath(__file__)))
 resources_root = path.join(project_root, "resources")
