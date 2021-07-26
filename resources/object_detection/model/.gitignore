@@ -1,5 +1,7 @@
-/*/checkpoint
-/*/saved_model
+/custom_faster_rcnn/*
+
+/*/checkpoint/
+/*/saved_model/
 
 !*/readme.md
 !*/pipeline.config

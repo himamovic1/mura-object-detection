@@ -81,10 +81,17 @@ all images chosen for dataset and generated XML files with labels into the same 
 Just run `tf_record_create.py` script, and it will generate record files in the configured `TF_RECORDS_PATH`. It will
 take the data from `DATASET_PATH` config parameter.
 
+### Train and evaluate the model
+
+Run `tf_model_evaluate.py` script, after it starts run TensorBoard from project root
+`tensorboard --logdir=.\resources\object_detection\model\custom_faster_rcnn`.
+
+When it´s all up and running start the `tf_model_train.py` script and wait.
+
 ### Export a model (workaround)
 
 To export model just execute (from project root):
 
 ```
-python -m scripts.tf_model_export_workaround --input_type image_tensor --pipeline_config_path .\resources\object_detection\model\custom_faster_rcnn\pipeline.config --trained_checkpoint_dir .\resources\object_detection\model\_faster_rcnn --output_directory .\resources\object_detection\model\custom_faster_rcnn
+python -m scripts.tf_model_export_workaround --input_type image_tensor --pipeline_config_path .\resources\object_detection\model\custom_faster_rcnn\pipeline.config --trained_checkpoint_dir .\resources\object_detection\model\custom_faster_rcnn --output_directory .\resources\object_detection\model\exported_model_01
 ```

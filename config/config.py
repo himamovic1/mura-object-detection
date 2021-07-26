@@ -76,7 +76,7 @@ class Config:
     TF_FLAG_SIDE_INPUT_SHAPES: str = ""
 
     # TODO: Always update the output path before exporting to avoid overriding models
-    TF_FLAG_CUSTOM_MODEL_TRAINED_OUTPUT_DIR: str = path.join(mura_resources_path, "model", "custom_faster_rcnn")
+    TF_FLAG_CUSTOM_MODEL_TRAINED_OUTPUT_DIR: str = path.join(mura_resources_path, "model", "exported_model_01")
 
     ########################################################
     # Main Application Detector Configuration              #
