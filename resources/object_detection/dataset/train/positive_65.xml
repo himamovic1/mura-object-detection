@@ -1,7 +1,7 @@
 <annotation>
 	<folder>train</folder>
 	<filename>positive_65.png</filename>
-	<path>D:\Documents\Faks\ETF\Master 2.0\other\MURA\generated\train\positive_65.png</path>
+	<path>.\positive_65.png</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -17,10 +17,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>118</xmin>
-			<ymin>396</ymin>
-			<xmax>238</xmax>
-			<ymax>424</ymax>
+			<xmin>138</xmin>
+			<ymin>196</ymin>
+			<xmax>249</xmax>
+			<ymax>298</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -29,10 +29,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>94</xmin>
-			<ymin>422</ymin>
-			<xmax>284</xmax>
-			<ymax>481</ymax>
+			<xmin>37</xmin>
+			<ymin>293</ymin>
+			<xmax>118</xmax>
+			<ymax>390</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -41,10 +41,22 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>40</xmin>
-			<ymin>190</ymin>
-			<xmax>257</xmax>
-			<ymax>394</ymax>
+			<xmin>113</xmin>
+			<ymin>397</ymin>
+			<xmax>234</xmax>
+			<ymax>422</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>implant</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>91</xmin>
+			<ymin>421</ymin>
+			<xmax>279</xmax>
+			<ymax>477</ymax>
 		</bndbox>
 	</object>
 </annotation>

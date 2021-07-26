@@ -1,7 +1,7 @@
 <annotation>
 	<folder>test</folder>
 	<filename>positive_28.png</filename>
-	<path>D:\Documents\Faks\ETF\Master 2.0\other\MURA\generated\test\positive_28.png</path>
+	<path>.\positive_28.png</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -17,10 +17,22 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
+			<xmin>265</xmin>
+			<ymin>112</ymin>
+			<xmax>342</xmax>
+			<ymax>202</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>implant</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
 			<xmin>166</xmin>
-			<ymin>122</ymin>
-			<xmax>345</xmax>
-			<ymax>251</ymax>
+			<ymin>171</ymin>
+			<xmax>248</xmax>
+			<ymax>253</ymax>
 		</bndbox>
 	</object>
 </annotation>

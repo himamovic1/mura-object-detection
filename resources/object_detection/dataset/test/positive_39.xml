@@ -1,7 +1,7 @@
 <annotation>
 	<folder>test</folder>
 	<filename>positive_39.png</filename>
-	<path>D:\Documents\Faks\ETF\Master 2.0\other\MURA\generated\test\positive_39.png</path>
+	<path>.\positive_39.png</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -17,10 +17,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>188</xmin>
+			<xmin>192</xmin>
 			<ymin>65</ymin>
-			<xmax>238</xmax>
-			<ymax>181</ymax>
+			<xmax>239</xmax>
+			<ymax>173</ymax>
 		</bndbox>
 	</object>
 </annotation>

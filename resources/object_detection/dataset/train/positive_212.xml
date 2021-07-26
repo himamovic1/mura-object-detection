@@ -1,7 +1,7 @@
 <annotation>
 	<folder>train</folder>
 	<filename>positive_212.png</filename>
-	<path>D:\Documents\Faks\ETF\Master 2.0\other\MURA\generated\train\positive_212.png</path>
+	<path>.\positive_212.png</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -17,10 +17,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>219</xmin>
-			<ymin>113</ymin>
-			<xmax>330</xmax>
-			<ymax>297</ymax>
+			<xmin>225</xmin>
+			<ymin>121</ymin>
+			<xmax>317</xmax>
+			<ymax>298</ymax>
 		</bndbox>
 	</object>
 </annotation>

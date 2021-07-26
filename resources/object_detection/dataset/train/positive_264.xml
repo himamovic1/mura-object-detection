@@ -1,7 +1,7 @@
 <annotation>
 	<folder>train</folder>
 	<filename>positive_264.png</filename>
-	<path>D:\Documents\Faks\ETF\Master 2.0\other\MURA\generated\train\positive_264.png</path>
+	<path>.\positive_264.png</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -18,9 +18,21 @@
 		<difficult>0</difficult>
 		<bndbox>
 			<xmin>44</xmin>
-			<ymin>17</ymin>
-			<xmax>309</xmax>
-			<ymax>300</ymax>
+			<ymin>15</ymin>
+			<xmax>186</xmax>
+			<ymax>153</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>implant</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>197</xmin>
+			<ymin>154</ymin>
+			<xmax>310</xmax>
+			<ymax>299</ymax>
 		</bndbox>
 	</object>
 </annotation>

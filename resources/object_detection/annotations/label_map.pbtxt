@@ -1,8 +1,4 @@
 item {
-  name: "fracture"
-  id: 1
-}
-item {
   name: "implant"
-  id: 2
+  id: 1
 }
