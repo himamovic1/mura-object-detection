@@ -23,9 +23,9 @@ class Config:
     LOGGING_FILE: str = path.join(resources_root, "log_archive.log")
 
     # Dataset
-    DATASET_ROOT_PATH: str = path.join(mura_resources_path, "dataset", "implants_fractures")
-    ANNOTATIONS_ROOT_PATH: str = path.join(mura_resources_path, "annotations", "implants_fractures")
-    CUSTOM_MODEL_ROOT_PATH: str = path.join(mura_resources_path, "model", "custom_faster_rcnn_implants_fractures")
+    DATASET_ROOT_PATH: str = path.join(mura_resources_path, "dataset", "implants")
+    ANNOTATIONS_ROOT_PATH: str = path.join(mura_resources_path, "annotations", "implants")
+    CUSTOM_MODEL_ROOT_PATH: str = path.join(mura_resources_path, "model", "custom_faster_rcnn_implants")
     MODEL_FRCNN_PATH: str = path.join(mura_resources_path, "model", "tensorflow_faster_rcnn_resnet50")
 
     # Derived paths
@@ -44,9 +44,9 @@ class Config:
     MODEL_CHECKPOINT_PATH: str = path.join(MODEL_FRCNN_PATH, "checkpoint", "ckpt-0")
 
     # Detection process config
-    OBJECT_DETECTION_MIN_CONFIDENCE: float = 0.85
+    OBJECT_DETECTION_MIN_CONFIDENCE: float = 0.75
     OBJECT_DETECTION_CLASSES_OFFSET: int = 1
-    OBJECT_DETECTION_CLASSES: Dict[int, str] = {1: "implant", 2: "fracture"}
+    OBJECT_DETECTION_CLASSES: Dict[int, str] = {1: "implant"}
 
     ########################################################
     # Tensorflow ObjectDetection API Training & Evaluating #
@@ -77,7 +77,7 @@ class Config:
 
     # TODO: Always update the output path before exporting to avoid overriding models
     TF_FLAG_CUSTOM_MODEL_TRAINED_OUTPUT_DIR: str = path.join(
-        mura_resources_path, "model", "exported_custom_model_02_implants_fractures")
+        mura_resources_path, "model", "exported_custom_model_01_implants")
 
     ########################################################
     # Main Application Detector Configuration              #
