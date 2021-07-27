@@ -92,8 +92,8 @@ When it´s all up and running start the `tf_model_train.py` script and wait.
 
 To export model just execute (from project root):
 
-*Exported models are available on my drive since they are too large to be uploaded to github*
+```
+python -m scripts.tf_model_export --input_type image_tensor --pipeline_config_path .\resources\object_detection\model\custom_faster_rcnn_implants_fractures\pipeline.config --trained_checkpoint_dir .\resources\object_detection\model\custom_faster_rcnn_implants_fractures --output_directory .\resources\object_detection\model\exported_custom_model_02_implants_fractures
+```
 
-```
-python -m scripts.tf_model_export_workaround --input_type image_tensor --pipeline_config_path .\resources\object_detection\model\custom_faster_rcnn_implants_fractures\pipeline.config --trained_checkpoint_dir .\resources\object_detection\model\custom_faster_rcnn_implants_fractures --output_directory .\resources\object_detection\model\exported_custom_model_02_implants_fractures
-```
+*Exported models are available on my drive since they are too large to be uploaded to github*
