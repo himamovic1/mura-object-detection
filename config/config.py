@@ -23,9 +23,9 @@ class Config:
     LOGGING_FILE: str = path.join(resources_root, "log_archive.log")
 
     # Dataset
-    DATASET_ROOT_PATH: str = path.join(mura_resources_path, "dataset")
-    ANNOTATIONS_ROOT_PATH: str = path.join(mura_resources_path, "annotations")
-    CUSTOM_MODEL_ROOT_PATH: str = path.join(mura_resources_path, "model", "custom_faster_rcnn")
+    DATASET_ROOT_PATH: str = path.join(mura_resources_path, "dataset", "implants_fractures")
+    ANNOTATIONS_ROOT_PATH: str = path.join(mura_resources_path, "annotations", "implants_fractures")
+    CUSTOM_MODEL_ROOT_PATH: str = path.join(mura_resources_path, "model", "custom_faster_rcnn_implants_fractures")
     MODEL_FRCNN_PATH: str = path.join(mura_resources_path, "model", "tensorflow_faster_rcnn_resnet50")
 
     # Derived paths
@@ -46,7 +46,7 @@ class Config:
     # Detection process config
     OBJECT_DETECTION_MIN_CONFIDENCE: float = 0.85
     OBJECT_DETECTION_CLASSES_OFFSET: int = 1
-    OBJECT_DETECTION_CLASSES: Dict[int, str] = {1: "implant"}
+    OBJECT_DETECTION_CLASSES: Dict[int, str] = {1: "implant", 2: "fracture"}
 
     ########################################################
     # Tensorflow ObjectDetection API Training & Evaluating #
@@ -76,7 +76,8 @@ class Config:
     TF_FLAG_SIDE_INPUT_SHAPES: str = ""
 
     # TODO: Always update the output path before exporting to avoid overriding models
-    TF_FLAG_CUSTOM_MODEL_TRAINED_OUTPUT_DIR: str = path.join(mura_resources_path, "model", "exported_model_01")
+    TF_FLAG_CUSTOM_MODEL_TRAINED_OUTPUT_DIR: str = path.join(
+        mura_resources_path, "model", "exported_custom_model_02_implants_fractures")
 
     ########################################################
     # Main Application Detector Configuration              #
@@ -94,5 +95,5 @@ class Config:
     MURA_DATASET_OUTPUT_TRAIN_DIR: str = path.join(MURA_DATASET_ROOT_DIR, "generated", "train")
     MURA_DATASET_OUTPUT_TEST_DIR: str = path.join(MURA_DATASET_ROOT_DIR, "generated", "test")
 
-    MURA_DATASET_TRAIN_IMAGE_COUNT: int = 400
-    MURA_DATASET_TEST_IMAGE_COUNT: int = 100
+    MURA_DATASET_TRAIN_IMAGE_COUNT: int = 500
+    MURA_DATASET_TEST_IMAGE_COUNT: int = 150

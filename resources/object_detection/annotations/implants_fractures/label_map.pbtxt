@@ -1,0 +1,8 @@
+item {
+  name: "implant"
+  id: 1
+}
+item {
+  name: "fracture"
+  id: 2
+}

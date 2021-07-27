@@ -84,7 +84,7 @@ take the data from `DATASET_PATH` config parameter.
 ### Train and evaluate the model
 
 Run `tf_model_evaluate.py` script, after it starts run TensorBoard from project root
-`tensorboard --logdir=.\resources\object_detection\model\custom_faster_rcnn`.
+`tensorboard --logdir=.\resources\object_detection\model\custom_faster_rcnn_implants_fractures`.
 
 When it´s all up and running start the `tf_model_train.py` script and wait.
 
@@ -93,5 +93,5 @@ When it´s all up and running start the `tf_model_train.py` script and wait.
 To export model just execute (from project root):
 
 ```
-python -m scripts.tf_model_export_workaround --input_type image_tensor --pipeline_config_path .\resources\object_detection\model\custom_faster_rcnn\pipeline.config --trained_checkpoint_dir .\resources\object_detection\model\custom_faster_rcnn --output_directory .\resources\object_detection\model\exported_model_01
+python -m scripts.tf_model_export_workaround --input_type image_tensor --pipeline_config_path .\resources\object_detection\model\custom_faster_rcnn_implants_fractures\pipeline.config --trained_checkpoint_dir .\resources\object_detection\model\custom_faster_rcnn_implants_fractures --output_directory .\resources\object_detection\model\exported_custom_model_02_implants_fractures
 ```
