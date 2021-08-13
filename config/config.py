@@ -23,8 +23,8 @@ class Config:
     LOGGING_FILE: str = path.join(resources_root, "log_archive.log")
 
     # Dataset
-    DATASET_ROOT_PATH: str = path.join(mura_resources_path, "dataset", "implants")
-    ANNOTATIONS_ROOT_PATH: str = path.join(mura_resources_path, "annotations", "implants")
+    DATASET_ROOT_PATH: str = path.join(mura_resources_path, "dataset", "implants_multiple")
+    ANNOTATIONS_ROOT_PATH: str = path.join(mura_resources_path, "annotations", "implants_multiple")
     CUSTOM_MODEL_ROOT_PATH: str = path.join(mura_resources_path, "model", "custom_faster_rcnn_implants")
     MODEL_FRCNN_PATH: str = path.join(mura_resources_path, "model", "tensorflow_faster_rcnn_resnet50")
 
