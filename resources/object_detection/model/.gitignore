@@ -1,6 +1,7 @@
 /custom_faster_rcnn_implants/*
-/custom_faster_rcnn_implants_multiple/*
 /custom_faster_rcnn_implants_fractures/*
+/custom_faster_rcnn_implants_multiple/*
+/custom_faster_rcnn_implants_multiple_beta/*
 
 /*/checkpoint/
 /*/saved_model/

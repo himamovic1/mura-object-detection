@@ -25,7 +25,7 @@ class Config:
     # Dataset
     DATASET_ROOT_PATH: str = path.join(mura_resources_path, "dataset", "implants_multiple")
     ANNOTATIONS_ROOT_PATH: str = path.join(mura_resources_path, "annotations", "implants_multiple")
-    CUSTOM_MODEL_ROOT_PATH: str = path.join(mura_resources_path, "model", "custom_faster_rcnn_implants_multiple")
+    CUSTOM_MODEL_ROOT_PATH: str = path.join(mura_resources_path, "model", "custom_faster_rcnn_implants_multiple_beta")
     MODEL_FRCNN_PATH: str = path.join(mura_resources_path, "model", "tensorflow_faster_rcnn_resnet50")
 
     # Derived paths
@@ -77,7 +77,7 @@ class Config:
 
     # TODO: Always update the output path before exporting to avoid overriding models
     TF_FLAG_CUSTOM_MODEL_TRAINED_OUTPUT_DIR: str = path.join(
-        mura_resources_path, "model", "exported_custom_model_03_implants_multiple")
+        mura_resources_path, "model", "exported_custom_model_03_implants_multiple_beta")
 
     ########################################################
     # Main Application Detector Configuration              #
