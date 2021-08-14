@@ -77,7 +77,7 @@ class Config:
 
     # TODO: Always update the output path before exporting to avoid overriding models
     TF_FLAG_CUSTOM_MODEL_TRAINED_OUTPUT_DIR: str = path.join(
-        mura_resources_path, "model", "exported_custom_model_01_implants")
+        mura_resources_path, "model", "exported_custom_model_03_implants_multiple")
 
     ########################################################
     # Main Application Detector Configuration              #
